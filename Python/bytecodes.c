@@ -5237,6 +5237,8 @@ dummy_func(
             RELOAD_STACK();
 #ifdef Py_TAIL_CALL_INTERP
             int opcode;
+            int predicted_opcode = next_instr->op.code;
+            py_tail_call_funcptr next_op_f = INSTRUCTION_TABLE[predicted_opcode];
 #endif
             DISPATCH();
         }
@@ -5279,6 +5281,8 @@ dummy_func(
             RELOAD_STACK();
 #ifdef Py_TAIL_CALL_INTERP
             int opcode;
+            int predicted_opcode = next_instr->op.code;
+            py_tail_call_funcptr next_op_f = INSTRUCTION_TABLE[predicted_opcode];
 #endif
             DISPATCH();
         }
